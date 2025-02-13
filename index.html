@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The main one questions_base_</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            width: 300px;
+            padding: 10px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #response {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+  </head>
+<body>
+    <h2>Ask me a question heheheh</h2>
+    <input type="text" id="queryInput" placeholder="Question...">
+    <button onclick="sendQuery()">Send</button>
+    <p id="response"></p>
+
+    <script>
+      function sendQuery() {
+            let query = document.getElementById("queryInput").value;
+            
+            fetch("http://127.0.0.1:5000/query", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ query: query })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("response").innerText = "Response: " + data.response;
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
+</body>
+</html>
+
