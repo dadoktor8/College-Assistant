@@ -1,0 +1,4 @@
+Model Development --> This week
+Model With data set saturday --> Saturday
+Integration with database --> Next week
+F1 Score, Accuracy check, Model Evaluation for different documents --> Next Saturday
