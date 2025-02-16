@@ -1,1 +1,6 @@
-
+llama-cpp-python
+numpy
+flask
+flask-cors
+torch
+#transformer
