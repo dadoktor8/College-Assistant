@@ -11,6 +11,7 @@ Currently deep seek has been finetuned to summarize simple paragraphs, acheived 
 1. Implement a RAG Pipeline for document summariztion.
 2. Increase the performance of the model in order to output faster.
 3. Clean the website.
+4. Better structure the file-system
 ```
 
 ## How to use:
