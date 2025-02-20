@@ -36,3 +36,21 @@ Charles Dickens, born into poverty after his father's imprisonment, drew from hi
 2025-02-20 16:19:08,694 [INFO]: Model Starting
 2025-02-20 16:19:09,789 [WARNING]:  * Debugger is active!
 2025-02-20 16:19:09,807 [INFO]:  * Debugger PIN: 803-482-452
+2025-02-20 16:19:40,525 [INFO]: Model Starting
+2025-02-20 16:19:41,491 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.123.134:5000
+2025-02-20 16:19:41,492 [INFO]: [33mPress CTRL+C to quit[0m
+2025-02-20 16:19:41,494 [INFO]:  * Restarting with stat
+2025-02-20 16:19:42,237 [INFO]: Model Starting
+2025-02-20 16:19:43,534 [WARNING]:  * Debugger is active!
+2025-02-20 16:19:43,553 [INFO]:  * Debugger PIN: 803-482-452
+2025-02-20 16:19:57,109 [INFO]: 127.0.0.1 - - [20/Feb/2025 16:19:57] "OPTIONS /query HTTP/1.1" 200 -
+2025-02-20 16:23:01,852 [INFO]: Model Response: Charles Dickens, born into poverty after his father's imprisonment, drew from his early hardships to critique 19th-century London's Poor Law via his novel *Oliver Twist*.
+2025-02-20 16:23:01,853 [INFO]: Process completed
+2025-02-20 16:23:01,859 [INFO]: 127.0.0.1 - - [20/Feb/2025 16:23:01] "POST /query HTTP/1.1" 200 -
+2025-02-20 16:46:23,952 [INFO]: 127.0.0.1 - - [20/Feb/2025 16:46:23] "OPTIONS /query HTTP/1.1" 200 -
+2025-02-20 16:49:31,265 [INFO]: Model Response: The Victorian era (1820–1914) marked a period of significant change in Britain, characterized by a class-based society, expanding political participation, and economic growth. During this time, Britain was a dominant global power, enjoying imperial strength and wealth driven by industrialization. However, by the late 19th century, Britain began to lose its global political and economic prominence, particularly to the United States, a decline that became evident post-World War II.
+2025-02-20 16:49:31,265 [INFO]: Process completed
+2025-02-20 16:49:31,276 [INFO]: 127.0.0.1 - - [20/Feb/2025 16:49:31] "POST /query HTTP/1.1" 200 -
