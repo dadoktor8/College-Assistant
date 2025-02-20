@@ -5,17 +5,21 @@ Currently deep seek has been finetuned to summarize simple paragraphs, acheived 
 
 ## Future plans:
 
+```
 ---
 
-Implement a RAG Pipeline for document summariztion.
-Increase the performance of the model in order to output faster.
-Clean the website.
+1. Implement a RAG Pipeline for document summariztion.
+2. Increase the performance of the model in order to output faster.
+3. Clean the website.
+```
 
 ## How to use:
 
+```
 1. In main.py add the directory for your deepseek model --> Currently only using gguf format --> DeepSeek-R1-Distill-Llama-8B-Q4_K_M.gguf
 2. Config the prompt as required
 3. You are good to go!
+```
 
 ## Project Organization
 
