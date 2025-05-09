@@ -1,0 +1,95 @@
+2025-05-10 01:55:56,752 [INFO]: Model Starting
+2025-05-10 01:55:57,596 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.188.134:5000
+2025-05-10 01:55:57,597 [INFO]: [33mPress CTRL+C to quit[0m
+2025-05-10 01:55:57,600 [INFO]:  * Restarting with stat
+2025-05-10 01:55:58,213 [INFO]: Model Starting
+2025-05-10 01:55:58,988 [WARNING]:  * Debugger is active!
+2025-05-10 01:55:59,005 [INFO]:  * Debugger PIN: 803-482-452
+2025-05-10 01:56:33,979 [INFO]: 127.0.0.1 - - [10/May/2025 01:56:33] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-10 01:56:34,649 [INFO]: 127.0.0.1 - - [10/May/2025 01:56:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-10 01:56:37,262 [INFO]: 127.0.0.1 - - [10/May/2025 01:56:37] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-10 01:56:45,487 [INFO]: 192.168.188.134 - - [10/May/2025 01:56:45] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-10 01:56:46,162 [INFO]: 192.168.188.134 - - [10/May/2025 01:56:46] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-10 01:57:35,137 [INFO]: Model Starting
+2025-05-10 01:57:35,841 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.188.134:5000
+2025-05-10 01:57:35,842 [INFO]: [33mPress CTRL+C to quit[0m
+2025-05-10 01:57:35,844 [INFO]:  * Restarting with stat
+2025-05-10 01:57:36,445 [INFO]: Model Starting
+2025-05-10 01:57:37,170 [WARNING]:  * Debugger is active!
+2025-05-10 01:57:37,188 [INFO]:  * Debugger PIN: 803-482-452
+2025-05-10 01:57:58,932 [INFO]: 127.0.0.1 - - [10/May/2025 01:57:58] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-10 01:58:41,567 [INFO]: 127.0.0.1 - - [10/May/2025 01:58:41] "[31m[1mGET /query HTTP/1.1[0m" 405 -
+2025-05-10 01:58:42,103 [INFO]: 127.0.0.1 - - [10/May/2025 01:58:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-10 02:01:54,804 [INFO]: 127.0.0.1 - - [10/May/2025 02:01:54] "[31m[1mGET /query HTTP/1.1[0m" 405 -
+2025-05-10 02:01:55,346 [INFO]: 127.0.0.1 - - [10/May/2025 02:01:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-10 02:01:58,495 [INFO]: 127.0.0.1 - - [10/May/2025 02:01:58] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-10 02:01:58,947 [INFO]: 127.0.0.1 - - [10/May/2025 02:01:58] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-10 02:05:32,975 [INFO]:  * Detected change in 'D:\\College-Assistant\\College-Assistant\\src\\main.py', reloading
+2025-05-10 02:05:33,068 [INFO]:  * Restarting with stat
+2025-05-10 02:05:33,839 [INFO]: Model Starting
+2025-05-10 02:05:34,592 [WARNING]:  * Debugger is active!
+2025-05-10 02:05:34,612 [INFO]:  * Debugger PIN: 803-482-452
+2025-05-10 02:05:49,368 [INFO]: 127.0.0.1 - - [10/May/2025 02:05:49] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-10 02:05:49,589 [INFO]: 127.0.0.1 - - [10/May/2025 02:05:49] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-05-10 02:05:49,612 [INFO]: 127.0.0.1 - - [10/May/2025 02:05:49] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-05-10 02:05:49,934 [INFO]: 127.0.0.1 - - [10/May/2025 02:05:49] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-05-10 02:05:50,028 [INFO]: 127.0.0.1 - - [10/May/2025 02:05:50] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=l5meArkFtSPEwDlTZOSR HTTP/1.1" 200 -
+2025-05-10 02:05:50,030 [INFO]: 127.0.0.1 - - [10/May/2025 02:05:50] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-05-10 02:06:51,499 [INFO]:  * Detected change in 'D:\\College-Assistant\\College-Assistant\\src\\main.py', reloading
+2025-05-10 02:06:51,620 [INFO]:  * Restarting with stat
+2025-05-10 02:06:52,401 [INFO]: Model Starting
+2025-05-10 02:06:53,478 [WARNING]:  * Debugger is active!
+2025-05-10 02:06:53,503 [INFO]:  * Debugger PIN: 803-482-452
+2025-05-10 02:06:57,273 [INFO]: 127.0.0.1 - - [10/May/2025 02:06:57] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-10 02:06:57,536 [INFO]: 127.0.0.1 - - [10/May/2025 02:06:57] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-05-10 02:06:57,538 [INFO]: 127.0.0.1 - - [10/May/2025 02:06:57] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-05-10 02:06:57,812 [INFO]: 127.0.0.1 - - [10/May/2025 02:06:57] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=UT0OJ8hUz1TnliYd825E HTTP/1.1" 200 -
+2025-05-10 02:06:57,828 [INFO]: 127.0.0.1 - - [10/May/2025 02:06:57] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-05-10 02:06:57,843 [INFO]: 127.0.0.1 - - [10/May/2025 02:06:57] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-05-10 02:07:36,482 [INFO]:  * Detected change in 'D:\\College-Assistant\\College-Assistant\\src\\main.py', reloading
+2025-05-10 02:07:36,605 [INFO]:  * Restarting with stat
+2025-05-10 02:07:37,287 [INFO]: Model Starting
+2025-05-10 02:07:38,088 [WARNING]:  * Debugger is active!
+2025-05-10 02:07:38,104 [INFO]:  * Debugger PIN: 803-482-452
+2025-05-10 02:07:41,311 [INFO]: 127.0.0.1 - - [10/May/2025 02:07:41] "GET / HTTP/1.1" 200 -
+2025-05-10 02:07:41,838 [INFO]: 127.0.0.1 - - [10/May/2025 02:07:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-10 02:25:21,637 [INFO]:  * Detected change in 'D:\\College-Assistant\\College-Assistant\\src\\main.py', reloading
+2025-05-10 02:25:21,765 [INFO]:  * Restarting with stat
+2025-05-10 02:27:43,472 [INFO]: Model Starting
+2025-05-10 02:27:44,236 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.188.134:5000
+2025-05-10 02:27:44,236 [INFO]: [33mPress CTRL+C to quit[0m
+2025-05-10 02:27:44,240 [INFO]:  * Restarting with stat
+2025-05-10 02:27:45,248 [INFO]: Model Starting
+2025-05-10 02:27:45,962 [WARNING]:  * Debugger is active!
+2025-05-10 02:27:45,977 [INFO]:  * Debugger PIN: 803-482-452
+2025-05-10 02:27:50,350 [INFO]: 127.0.0.1 - - [10/May/2025 02:27:50] "GET / HTTP/1.1" 200 -
+2025-05-10 02:27:50,963 [INFO]: 127.0.0.1 - - [10/May/2025 02:27:50] "GET /list_textbooks HTTP/1.1" 200 -
+2025-05-10 02:27:50,978 [INFO]: 127.0.0.1 - - [10/May/2025 02:27:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-10 02:29:06,251 [INFO]: 127.0.0.1 - - [10/May/2025 02:29:06] "POST /upload_textbook HTTP/1.1" 200 -
+2025-05-10 02:29:06,266 [INFO]: 127.0.0.1 - - [10/May/2025 02:29:06] "GET /list_textbooks HTTP/1.1" 200 -
+2025-05-10 02:36:15,870 [INFO]: Model Response: Keras is a high-level neural networks API developed by Google and now maintained by the TensorFlow team. It provides a user-friendly interface for building, training, and evaluating deep learning models. Keras allows for the creation of custom models using layers and supports various optimizers and loss functions. It is commonly used with TensorFlow or PyTorch for building and deploying deep learning models.
+2025-05-10 02:36:15,910 [INFO]: 127.0.0.1 - - [10/May/2025 02:36:15] "POST /query HTTP/1.1" 200 -
+2025-05-10 02:47:46,911 [INFO]: 127.0.0.1 - - [10/May/2025 02:47:46] "POST /generate_quiz HTTP/1.1" 200 -
+2025-05-10 02:51:50,339 [INFO]: 127.0.0.1 - - [10/May/2025 02:51:50] "GET /export_quiz_pdf/5aa2a28991739c80db1d26fcc2d0fab9 HTTP/1.1" 200 -
+2025-05-10 03:00:40,647 [INFO]:  * Detected change in 'D:\\College-Assistant\\College-Assistant\\src\\main.py', reloading
+2025-05-10 03:00:41,337 [INFO]:  * Restarting with stat
+2025-05-10 03:00:42,865 [INFO]: Model Starting
+2025-05-10 03:00:43,719 [WARNING]:  * Debugger is active!
+2025-05-10 03:00:43,742 [INFO]:  * Debugger PIN: 803-482-452
+2025-05-10 03:01:57,871 [INFO]: 127.0.0.1 - - [10/May/2025 03:01:57] "[31m[1mPOST /generate_quiz HTTP/1.1[0m" 400 -
+2025-05-10 03:02:00,528 [INFO]: 127.0.0.1 - - [10/May/2025 03:02:00] "[31m[1mPOST /generate_quiz HTTP/1.1[0m" 400 -
+2025-05-10 03:02:18,147 [INFO]: 127.0.0.1 - - [10/May/2025 03:02:18] "POST /upload_textbook HTTP/1.1" 200 -
+2025-05-10 03:02:18,185 [INFO]: 127.0.0.1 - - [10/May/2025 03:02:18] "GET /list_textbooks HTTP/1.1" 200 -
+2025-05-10 03:02:22,165 [INFO]: 127.0.0.1 - - [10/May/2025 03:02:22] "GET /list_textbooks HTTP/1.1" 200 -
+2025-05-10 03:11:27,628 [INFO]: 127.0.0.1 - - [10/May/2025 03:11:27] "POST /generate_quiz HTTP/1.1" 200 -
+2025-05-10 03:14:21,766 [INFO]: 127.0.0.1 - - [10/May/2025 03:14:21] "GET /export_quiz_pdf/da33b89889c23920360d2e34d886815e HTTP/1.1" 200 -
+2025-05-10 03:16:40,749 [INFO]:  * Detected change in 'D:\\College-Assistant\\College-Assistant\\src\\main.py', reloading

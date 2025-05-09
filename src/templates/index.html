@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Assistant v2.0</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .container {
+      display: flex;
+      gap: 20px;
+    }
+    .left-panel {
+      flex: 1;
+      border-right: 1px solid #ccc;
+      padding-right: 20px;
+    }
+    .right-panel {
+      flex: 2;
+    }
+    .section {
+      margin-bottom: 30px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    h2 {
+      color: #333;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+    button {
+      padding: 8px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #response, #quizResponse {
+      margin-top: 15px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: white;
+      min-height: 100px;
+      white-space: pre-wrap;
+    }
+    .file-input {
+      margin: 10px 0;
+    }
+    .book-list {
+      margin: 10px 0;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .book-item {
+      padding: 5px;
+      margin: 5px 0;
+      border: 1px solid #eee;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    .book-item:hover {
+      background-color: #f0f0f0;
+    }
+    .book-item.selected {
+      background-color: #e0e0e0;
+      border-color: #aaa;
+    }
+    .status {
+      color: green;
+      margin: 5px 0;
+      font-style: italic;
+    }
+    .error {
+      color: red;
+      margin: 5px 0;
+      font-style: italic;
+    }
+    label {
+      display: block;
+      margin: 5px 0;
+    }
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(0,0,0,.3);
+      border-radius: 50%;
+      border-top-color: #000;
+      animation: spin 1s ease-in-out infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <h1>College Assistant v2.0</h1>
+  <p>Upload textbooks, ask questions, and generate quizzes based on your study materials!</p>
+  
+  <div class="container">
+    <div class="left-panel">
+      <div class="section">
+        <h2>Upload Textbook</h2>
+        <div class="file-input">
+          <input type="file" id="textbookFile" accept=".pdf,.txt">
+        </div>
+        <label for="bookTitle">Title:</label>
+        <input type="text" id="bookTitle" placeholder="Enter book title">
+        <label for="bookAuthor">Author:</label>
+        <input type="text" id="bookAuthor" placeholder="Enter author name">
+        <button onclick="uploadTextbook()">Upload</button>
+        <div id="uploadStatus"></div>
+      </div>
+      
+      <div class="section">
+        <h2>My Textbooks</h2>
+        <button onclick="refreshTextbooks()">Refresh List</button>
+        <div id="bookList" class="book-list">
+          <p>No textbooks uploaded yet.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="right-panel">
+      <div class="section">
+        <h2>Ask a Question</h2>
+        <textarea id="queryInput" placeholder="Enter your question about the textbook content..."></textarea>
+        <button onclick="sendQuery()">Ask</button>
+        <div id="response"></div>
+      </div>
+      
+      <div class="section">
+        <h2>Generate Quiz</h2>
+        <label for="quizTopic">Topic (optional):</label>
+        <input type="text" id="quizTopic" placeholder="Enter quiz topic">
+        <label for="numQuestions">Number of Questions:</label>
+        <input type="number" id="numQuestions" min="1" max="10" value="5">
+        <button onclick="generateQuiz()">Generate Quiz</button>
+        <div id="quizResponse"></div>
+        <div id="quizExport" style="display: none;">
+          <button onclick="exportQuizPDF()">Export to PDF</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Store current state
+    const state = {
+      selectedBookId: null,
+      currentQuizId: null
+    };
+    
+    // Initialize by loading textbooks
+    window.onload = function() {
+      refreshTextbooks();
+    };
+    
+    function uploadTextbook() {
+      const fileInput = document.getElementById("textbookFile");
+      const title = document.getElementById("bookTitle").value;
+      const author = document.getElementById("bookAuthor").value;
+      const statusDiv = document.getElementById("uploadStatus");
+      
+      if (!fileInput.files[0]) {
+        statusDiv.innerHTML = '<span class="error">Please select a file</span>';
+        return;
+      }
+      
+      const formData = new FormData();
+      formData.append('file', fileInput.files[0]);
+      formData.append('title', title || fileInput.files[0].name);
+      formData.append('author', author || 'Unknown');
+      
+      statusDiv.innerHTML = '<span class="loading"></span> Uploading...';
+      
+      fetch("/upload_textbook", {
+        method: "POST",
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          statusDiv.innerHTML = `<span class="status">Upload successful! Processed ${data.num_chunks} chunks.</span>`;
+          refreshTextbooks();
+          // Clear the form
+          fileInput.value = '';
+          document.getElementById("bookTitle").value = '';
+          document.getElementById("bookAuthor").value = '';
+        } else {
+          statusDiv.innerHTML = `<span class="error">Error: ${data.error}</span>`;
+        }
+      })
+      .catch(error => {
+        statusDiv.innerHTML = `<span class="error">Error: ${error.message}</span>`;
+      });
+    }
+    
+    function refreshTextbooks() {
+      fetch("/list_textbooks")
+      .then(response => response.json())
+      .then(data => {
+        const bookList = document.getElementById("bookList");
+        if (data.textbooks && data.textbooks.length > 0) {
+          bookList.innerHTML = '';
+          data.textbooks.forEach(book => {
+            const bookElement = document.createElement('div');
+            bookElement.className = 'book-item';
+            if (state.selectedBookId === book.id) {
+              bookElement.className += ' selected';
+            }
+            bookElement.innerHTML = `<strong>${book.title}</strong> by ${book.author} (${book.num_chunks} chunks)`;
+            bookElement.onclick = function() {
+              // Deselect all books
+              document.querySelectorAll('.book-item').forEach(el => {
+                el.classList.remove('selected');
+              });
+              // Select this book
+              bookElement.classList.add('selected');
+              state.selectedBookId = book.id;
+            };
+            bookList.appendChild(bookElement);
+          });
+        } else {
+          bookList.innerHTML = '<p>No textbooks uploaded yet.</p>';
+        }
+      })
+      .catch(error => {
+        document.getElementById("bookList").innerHTML = `<p class="error">Error loading textbooks: ${error.message}</p>`;
+      });
+    }
+    
+    function sendQuery() {
+      const query = document.getElementById("queryInput").value;
+      const responseDiv = document.getElementById("response");
+      
+      if (!query.trim()) {
+        responseDiv.innerHTML = "Please enter a question.";
+        return;
+      }
+      
+      responseDiv.innerHTML = '<span class="loading"></span> Thinking...';
+      
+      const requestData = {
+        query: query
+      };
+      
+      // If a specific book is selected, include it in the query
+      if (state.selectedBookId) {
+        requestData.book_id = state.selectedBookId;
+      }
+      
+      fetch("/query", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(requestData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        responseDiv.innerText = data.response;
+      })
+      .catch(error => {
+        responseDiv.innerHTML = `<span class="error">Error: ${error.message}</span>`;
+      });
+    }
+    
+    function generateQuiz() {
+      const topic = document.getElementById("quizTopic").value;
+      const numQuestions = document.getElementById("numQuestions").value;
+      const quizResponseDiv = document.getElementById("quizResponse");
+      const quizExportDiv = document.getElementById("quizExport");
+      
+      if (!state.selectedBookId) {
+        quizResponseDiv.innerHTML = '<span class="error">Please select a textbook first.</span>';
+        return;
+      }
+      
+      quizResponseDiv.innerHTML = '<span class="loading"></span> Generating quiz...';
+      quizExportDiv.style.display = 'none';
+      
+      fetch("/generate_quiz", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          book_id: state.selectedBookId,
+          topic: topic,
+          num_questions: numQuestions
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          quizResponseDiv.innerText = data.quiz_text;
+          state.currentQuizId = data.quiz_id;
+          quizExportDiv.style.display = 'block';
+        } else {
+          quizResponseDiv.innerHTML = `<span class="error">Error: ${data.error}</span>`;
+        }
+      })
+      .catch(error => {
+        quizResponseDiv.innerHTML = `<span class="error">Error: ${error.message}</span>`;
+      });
+    }
+    
+    function exportQuizPDF() {
+      if (!state.currentQuizId) {
+        alert("No quiz to export. Please generate a quiz first.");
+        return;
+      }
+      
+      window.open(`/export_quiz_pdf/${state.currentQuizId}`, '_blank');
+    }
+  </script>
+</body>
+</html>

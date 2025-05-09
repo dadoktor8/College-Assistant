@@ -1,0 +1,2 @@
+g models and layers with the name argument
+Listing 7.7 Specifying the input shape of your model in advanceUse Input to declare the shape of the inputs. Note that the shape argument must be the shape of each sample, not the shape of one batch.
